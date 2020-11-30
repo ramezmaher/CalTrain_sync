@@ -44,7 +44,6 @@ station_wait_for_train(struct station *station)
 	//passenger enters the station
 	pthread_mutex_lock(&(station->mutex));
 	station->number_of_passengers++;
-	printf("passenger %d arrived\n",station->number_of_passengers);
 	while(station->train_state){
 		//he || she waits for the train 
 		pthread_cond_wait(&(station->train_available),&(station->mutex));
@@ -71,7 +70,6 @@ station_on_board(struct station *station)
 	}
 	//passenger gets on the train
 	station->passengers_on_train--;
-	printf("%d passengers left\n",station->passengers_on_train);
 	if(station->passengers_on_train == 0){
 		//no more passengers with tickets
 		station->availabe_seats = 0;
