@@ -2,13 +2,12 @@
 #include <stdio.h>
 
 struct station {
-	int waiting_queue;
+	int passengers_on_train;
 	int number_of_passengers;
 	int availabe_seats;
 	pthread_mutex_t mutex;
-	pthread_cond_t train_available;
+	pthread_cond_t train_accessible;
 	pthread_cond_t train_full;
-	pthread_cond_t control;
 	pthread_mutexattr_t mutex_attr;
 	pthread_condattr_t cond_attr;
 };
