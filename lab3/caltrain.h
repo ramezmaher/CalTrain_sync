@@ -6,7 +6,7 @@ struct station {
 	int number_of_passengers; //number of passengers in the station and not on the train
 	int availabe_seats; //capacity of train
 	int train_state; //Flag to indicate if train empty or full
-	int passengers_state;
+	int tickets; //Flag to indicate if there is more tickets or all sold out
 	pthread_mutex_t mutex;
 	pthread_cond_t train_available;
 	pthread_cond_t train_full;
