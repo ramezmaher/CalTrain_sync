@@ -2,12 +2,15 @@
 #include <stdio.h>
 
 struct station {
-	int passengers_on_train;
-	int number_of_passengers;
-	int availabe_seats;
+	int passengers_on_train; //Number of passengers on the train
+	int number_of_passengers; //number of passengers in the station and not on the train
+	int availabe_seats; //capacity of train
+	int train_state; //Flag to indicate if train empty or full
+	int passengers_state;
 	pthread_mutex_t mutex;
-	pthread_cond_t train_accessible;
+	pthread_cond_t train_available;
 	pthread_cond_t train_full;
+	pthread_cond_t sold; 
 	pthread_mutexattr_t mutex_attr;
 	pthread_condattr_t cond_attr;
 };
